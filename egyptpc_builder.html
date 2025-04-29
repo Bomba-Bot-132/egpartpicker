@@ -1,0 +1,1429 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EgyptPC Builder - Premium PC Part Picker for Egypt</title>
+    <link rel="stylesheet" href="all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #CE1126;
+            --primary-dark: #9a0d1e;
+            --secondary: #FFFFFF;
+            --accent: #000000;
+            --gold: #D4AF37;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #343a40;
+            --text: #2d3748;
+            --success: #28a745;
+            --warning: #ffc107;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Roboto', 'Tajawal', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--light-gray);
+            overflow-x: hidden;
+        }
+        
+        /* Header with animated gradient */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--secondary);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero section with parallax effect */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--secondary);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--secondary);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            border-color: var(--secondary);
+            color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--accent);
+            margin-left: 1rem;
+        }
+        
+        .btn-gold:hover {
+            background-color: transparent;
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Main content area */
+        .main-content {
+            display: flex;
+            margin: 3rem 0;
+            gap: 2rem;
+            position: relative;
+        }
+        
+        /* Parts list with card design */
+        .parts-list {
+            flex: 1;
+            background-color: var(--secondary);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .parts-list:hover {
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .parts-list h2 {
+            margin-top: 0;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary);
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .parts-list h2:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--gold);
+            bottom: -3px;
+            left: 0;
+        }
+        
+        .part-category {
+            margin-bottom: 2.5rem;
+        }
+        
+        .part-category h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .part-category h3 i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+        
+        .part-item {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+        }
+        
+        .part-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-left-color: var(--primary);
+        }
+        
+        .part-info {
+            flex: 1;
+        }
+        
+        .part-info h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+        }
+        
+        .part-specs {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .part-store {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+        
+        .part-store i {
+            margin-right: 5px;
+        }
+        
+        .part-price {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin: 0 1.5rem;
+            white-space: nowrap;
+        }
+        
+        .part-select {
+            background: linear-gradient(to right, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--secondary);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            box-shadow: var(--shadow);
+        }
+        
+        .part-select i {
+            margin-right: 8px;
+        }
+        
+        .part-select:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .part-select.selected {
+            background: var(--success);
+        }
+        
+        /* Build summary with sticky positioning */
+        .build-summary {
+            width: 350px;
+            background-color: var(--secondary);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 100px;
+            align-self: flex-start;
+            transition: var(--transition);
+        }
+        
+        .build-summary:hover {
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .build-summary h2 {
+            margin-top: 0;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary);
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .build-summary h2:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--gold);
+            bottom: -3px;
+            left: 0;
+        }
+        
+        .summary-items {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .summary-items::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .summary-items::-webkit-scrollbar-track {
+            background: var(--light-gray);
+            border-radius: 10px;
+        }
+        
+        .summary-items::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed var(--medium-gray);
+            align-items: flex-start;
+        }
+        
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+        
+        .summary-item span:first-child {
+            font-weight: bold;
+            color: var(--dark-gray);
+            flex: 1;
+        }
+        
+        .summary-item span:last-child {
+            text-align: right;
+            flex: 2;
+            color: var(--text);
+        }
+        
+        .summary-item .part-name {
+            font-weight: 500;
+            display: block;
+        }
+        
+        .summary-item .part-price {
+            font-size: 0.9rem;
+            color: var(--primary);
+            display: block;
+            margin-top: 3px;
+        }
+        
+        .total {
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 3px solid var(--primary);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .total-price {
+            color: var(--primary);
+        }
+        
+        .save-build {
+            width: 100%;
+            margin-top: 1.5rem;
+            background: var(--gold);
+            color: var(--accent);
+        }
+        
+        .save-build:hover {
+            background: transparent;
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        
+        /* Where to buy section */
+        .stores-section {
+            margin-top: 2rem;
+        }
+        
+        .stores-section h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .stores-section h3 i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+        
+        .store-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        
+        .store-link {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--medium-gray);
+        }
+        
+        .store-link i {
+            margin-right: 8px;
+            color: var(--primary);
+        }
+        
+        .store-link:hover {
+            background-color: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .store-link:hover i {
+            color: var(--secondary);
+        }
+        
+        /* Compatibility notes */
+        .compatibility-notes {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--warning);
+        }
+        
+        .compatibility-notes h3 {
+            font-size: 1.3rem;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .compatibility-notes h3 i {
+            margin-right: 10px;
+            color: var(--warning);
+        }
+        
+        .compatibility-notes p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* Egyptian flag styling */
+        .egypt-flag {
+            display: inline-block;
+            width: 20px;
+            height: 12px;
+            background: linear-gradient(to bottom, 
+                #CE1126 0%, #CE1126 33.33%, 
+                #FFFFFF 33.33%, #FFFFFF 66.66%, 
+                #000000 66.66%, #000000 100%);
+            margin-right: 5px;
+            vertical-align: middle;
+            border-radius: 2px;
+            box-shadow: 0 0 2px rgba(0,0,0,0.3);
+        }
+        
+        .currency {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        /* Featured builds section */
+        .featured-builds {
+            padding: 4rem 0;
+            background-color: var(--medium-gray);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: var(--text);
+            max-width: 700px;
+            margin: 1rem auto 0;
+        }
+        
+        .builds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .build-card {
+            background-color: var(--secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .build-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .build-image {
+            height: 200px;
+            background-color: var(--dark-gray);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .build-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .build-card:hover .build-image img {
+            transform: scale(1.05);
+        }
+        
+        .build-price {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: rgba(206, 17, 38, 0.9);
+            color: var(--secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .build-content {
+            padding: 1.5rem;
+        }
+        
+        .build-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+        
+        .build-specs {
+            margin-bottom: 1.5rem;
+        }
+        
+        .build-spec {
+            display: flex;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .build-spec i {
+            color: var(--primary);
+            margin-right: 8px;
+            margin-top: 3px;
+        }
+        
+        .build-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+        }
+        
+        /* Footer with improved design */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--secondary);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-column ul li a i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #495057;
+            font-size: 0.9rem;
+            color: #adb5bd;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: #495057;
+            color: var(--secondary);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .build-summary {
+                width: 100%;
+                position: static;
+                margin-top: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--primary-dark);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 1rem 0;
+            }
+            
+            .hero {
+                height: auto;
+                padding: 120px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .btn-gold {
+                margin-left: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .part-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .part-price {
+                margin: 1rem 0;
+            }
+            
+            .part-select {
+                width: 100%;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Tooltip styles */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--dark-gray);
+            color: var(--secondary);
+            text-align: center;
+            border-radius: 6px;
+            padding: 0.5rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.8rem;
+            font-weight: normal;
+        }
+        
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--dark-gray) transparent transparent transparent;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Badge for new items */
+        .new-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--gold);
+            color: var(--accent);
+            padding: 0.3rem 0.6rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            box-shadow: var(--shadow);
+            z-index: 1;
+        }
+        
+        /* Price drop indicator */
+        .price-drop {
+            color: var(--success);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            margin-top: 3px;
+        }
+        
+        .price-drop i {
+            margin-right: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="egyptpc_builder.html">egyptpc_builder.html</a><i class="fas fa-desktop"></i>EgyptPC Builder
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul id="navMenu">
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-cogs"></i> Build Guides</a></li>
+                <li><a href="#"><i class="fas fa-store"></i> Egyptian Stores</a></li>
+                <li><a href="#"><i class="fas fa-compatibility"></i> Compatibility</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="slide-up">Build Your Dream PC in Egypt</h1>
+            <p class="slide-up">The ultimate tool for Egyptian PC builders. Compare prices from local retailers, check compatibility, and create your perfect setup - all in <span class="egypt-flag"></span> Egyptian Pounds.</p>
+            <div class="hero-buttons slide-up">
+                <a href="#builder" class="btn"><i class="fas fa-tools"></i> Start Building</a>
+                <a href="#featured" class="btn btn-gold"><i class="fas fa-star"></i> Featured Builds</a>
+            </div>
+        </div>
+    </section>
+    
+    <div class="container" id="builder">
+        <div class="main-content">
+            <div class="parts-list fade-in">
+                <h2><i class="fas fa-list-ul"></i> Component Selection</h2>
+                
+                <div class="part-category">
+                    <h3><i class="fas fa-microchip"></i> CPU - Processor</h3>
+                    <div class="part-item">
+                        <div class="part-info">
+                            <h4>Intel Core i5-12400F <span class="new-badge">NEW</span></h4>
+                            <p class="part-specs">6 cores, 12 threads, 2.5GHz base, 4.4GHz boost | LGA1700</p>
+                            <p class="part-store"><i class="fas fa-tag"></i> Available at: MaxiTech, EG Prices</p>
+                            <div class="price-drop">
+                                <i class="fas fa-arrow-down"></i> Price dropped by 500 EGP this week
+                            </div>
+                        </div>
+                        <div class="part-price">4,299 <span class="currency">EGP</span></div>
+                        <button class="part-select"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                    <div class="part-item">
+                        <div class="part-info">
+                            <h4>AMD Ryzen 5 5600X</h4>
+                            <p class="part-specs">6 cores, 12 threads, 3.7GHz base, 4.6GHz boost | AM4</p>
+                            <p class="part-store"><i class="fas fa-tag"></i> Available at: CompuMe, Cairo PC</p>
+                        </div>
+                        <div class="part-price">4,799 <span class="currency">EGP</span></div>
+                        <button class="part-select"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                    <div class="part-item">
+                        <div class="part-info">
+                            <h4>Intel Core i7-12700K</h4>
+                            <p class="part-specs">12 cores (8P+4E), 20 threads, 3.6GHz base, 5.0GHz boost | LGA1700</p>
+                            <p class="part-store"><i class="fas fa-tag"></i> Available at: EG Prices, Ultra PC</p>
+                        </div>
+                        <div class="part-price">8,999 <span class="currency">EGP</span></div>
+                        <button class="part-select"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                </div>
+                
+                <div class="part-category">
+                    <h3><i class="fas fa-gamepad"></i> GPU - Graphics Card</h3>
+                    <div class="part-item">
+                        <div class="part-info">
+                            <h4>NVIDIA GeForce RTX 3060</h4>
+                            <p class="part-specs">12GB GDDR6, 3584 CUDA cores | PCIe 4.0</p>
+                            <p class="part-store"><i class="fas fa-tag"></i> Available at: MaxiTech, Ultra PC</p>
+                        </div>
+                        <div class="part-price">12,499 <span class="currency">EGP</span></div>
+                        <button class="part-select"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                    <div class="part-item">
+                        <div class="part-info">
+                            <h4>AMD Radeon RX 6600</h4>
+                            <p class="part-specs">8GB GDDR6, 1792 Stream processors | PCIe 4.0</p>
+                            <p class="part-store"><i class="fas fa-tag"></i> Available at: Cairo PC, EG Prices</p>
+                        </div>
+                        <div class="part-price">9,999 <span class="currency">EGP</span></div>
+                        <button class="part-select"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                    <div class="part-item">
+                        <div class="part-info">
+                            <h4>NVIDIA GeForce RTX 3070</h4>
+                            <p class="part-specs">8GB GDDR6, 5888 CUDA cores | PCIe 4.0</p>
+                            <p class="part-store"><i class="fas fa-tag"></i> Available at: Ultra PC, MaxiTech</p>
+                        </div>
+                        <div class="part-price">18,999 <span class="currency">EGP</span></div>
+                        <button class="part-select"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                </div>
+                
+                <div class="part-category">
+                    <h3><i class="fas fa-project-diagram"></i> Motherboard</h3>
+                    <div class="part-item">
+                        <div class="part-info">
+                            <h4>MSI B660M-A PRO</h4>
+                            <p class="part-specs">Intel B660, mATX, DDR4, LGA1700</p>
+                            <p class="part-store"><i class="fas fa-tag"></i> Available at: CompuMe, Cairo PC</p>
+                        </div>
+                        <div class="part-price">3,299 <span class="currency">EGP</span></div>
+                        <button class="part-select"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                    <div class="part-item">
+                        <div class="part-info">
+                            <h4>Gigabyte B550 AORUS ELITE</h4>
+                            <p class="part-specs">AMD B550, ATX, DDR4, AM4</p>
+                            <p class="part-store"><i class="fas fa-tag"></i> Available at: EG Prices, Ultra PC</p>
+                        </div>
+                        <div class="part-price">3,899 <span class="currency">EGP</span></div>
+                        <button class="part-select"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                </div>
+                
+                <!-- Additional component categories would follow the same pattern -->
+                
+            </div>
+            
+            <div class="build-summary fade-in">
+                <h2><i class="fas fa-clipboard-list"></i> Your Build</h2>
+                
+                <div class="summary-items">
+                    <div class="summary-item">
+                        <span>CPU:</span>
+                        <span>-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>GPU:</span>
+                        <span>-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Motherboard:</span>
+                        <span>-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>RAM:</span>
+                        <span>-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Storage:</span>
+                        <span>-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Power Supply:</span>
+                        <span>-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Case:</span>
+                        <span>-</span>
+                    </div>
+                </div>
+                
+                <div class="total">
+                    <span>Total:</span>
+                    <span class="total-price">0 <span class="currency">EGP</span></span>
+                </div>
+                
+                <button class="btn save-build"><i class="fas fa-save"></i> Save This Build</button>
+                
+                <div class="stores-section">
+                    <h3><i class="fas fa-store"></i> Where to Buy in Egypt</h3>
+                    <div class="store-links">
+                        <a href="#" class="store-link"><i class="fas fa-shopping-cart"></i> MaxiTech</a>
+                        <a href="#" class="store-link"><i class="fas fa-shopping-cart"></i> EG Prices</a>
+                        <a href="#" class="store-link"><i class="fas fa-shopping-cart"></i> CompuMe</a>
+                        <a href="#" class="store-link"><i class="fas fa-shopping-cart"></i> Ultra PC</a>
+                        <a href="#" class="store-link"><i class="fas fa-shopping-cart"></i> Cairo PC</a>
+                    </div>
+                </div>
+                
+                <div class="compatibility-notes">
+                    <h3><i class="fas fa-check-circle"></i> Compatibility Notes</h3>
+                    <p>All components selected are compatible with each other. The motherboard supports the chosen CPU and has enough slots for your RAM and storage devices.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <section class="featured-builds" id="featured">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Builds for Egypt</h2>
+                <p>Popular PC configurations tailored for the Egyptian market and prices</p>
+            </div>
+            
+            <div class="builds-grid">
+                <div class="build-card slide-up">
+                    <div class="build-image">
+                        <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Gaming PC">
+                        <div class="build-price">25,999 EGP</div>
+                    </div>
+                    <div class="build-content">
+                        <h3>Mid-Range Gaming PC</h3>
+                        <div class="build-specs">
+                            <div class="build-spec">
+                                <i class="fas fa-microchip"></i>
+                                <span>AMD Ryzen 5 5600X</span>
+                            </div>
+                            <div class="build-spec">
+                                <i class="fas fa-gamepad"></i>
+                                <span>NVIDIA RTX 3060 12GB</span>
+                            </div>
+                            <div class="build-spec">
+                                <i class="fas fa-memory"></i>
+                                <span>16GB DDR4 3200MHz</span>
+                            </div>
+                        </div>
+                        <div class="build-actions">
+                            <a href="#" class="btn btn-sm"><i class="fas fa-eye"></i> View</a>
+                            <a href="#" class="btn btn-sm btn-gold"><i class="fas fa-copy"></i> Copy Build</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="build-card slide-up">
+                    <div class="build-image">
+                        <img src="https://images.unsplash.com/photo-1563212037-aef0b0b71a54?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Budget PC">
+                        <div class="build-price">15,499 EGP</div>
+                    </div>
+                    <div class="build-content">
+                        <h3>Budget Workstation</h3>
+                        <div class="build-specs">
+                            <div class="build-spec">
+                                <i class="fas fa-microchip"></i>
+                                <span>Intel Core i3-12100F</span>
+                            </div>
+                            <div class="build-spec">
+                                <i class="fas fa-gamepad"></i>
+                                <span>AMD RX 6500 XT 4GB</span>
+                            </div>
+                            <div class="build-spec">
+                                <i class="fas fa-memory"></i>
+                                <span>16GB DDR4 3200MHz</span>
+                            </div>
+                        </div>
+                        <div class="build-actions">
+                            <a href="#" class="btn btn-sm"><i class="fas fa-eye"></i> View</a>
+                            <a href="#" class="btn btn-sm btn-gold"><i class="fas fa-copy"></i> Copy Build</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="build-card slide-up">
+                    <div class="build-image">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="High-End PC">
+                        <div class="build-price">45,999 EGP</div>
+                    </div>
+                    <div class="build-content">
+                        <h3>High-End Gaming Rig</h3>
+                        <div class="build-specs">
+                            <div class="build-spec">
+                                <i class="fas fa-microchip"></i>
+                                <span>Intel Core i7-12700K</span>
+                            </div>
+                            <div class="build-spec">
+                                <i class="fas fa-gamepad"></i>
+                                <span>NVIDIA RTX 3080 10GB</span>
+                            </div>
+                            <div class="build-spec">
+                                <i class="fas fa-memory"></i>
+                                <span>32GB DDR4 3600MHz</span>
+                            </div>
+                        </div>
+                        <div class="build-actions">
+                            <a href="#" class="btn btn-sm"><i class="fas fa-eye"></i> View</a>
+                            <a href="#" class="btn btn-sm btn-gold"><i class="fas fa-copy"></i> Copy Build</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>EgyptPC Builder</h3>
+                    <p>The ultimate PC building tool for the Egyptian market, helping you find the best components at the best prices in EGP.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Build Guides</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Compatibility Check</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Egyptian Retailers</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Popular Categories</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Gaming PCs</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Budget Builds</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Workstations</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Streaming PCs</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Component Deals</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</a></li>
+                        <li><a href="#"><i class="fas fa-phone-alt"></i> +20 123 456 7890</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@egyptpcbuilder.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Sun-Thu: 10AM - 6PM</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 EgyptPC Builder. All rights reserved. All prices in <span class="egypt-flag"></span> Egyptian Pounds (EGP).</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Enhanced part selection functionality
+        document.querySelectorAll('.part-select').forEach(button => {
+            button.addEventListener('click', function() {
+                const partItem = this.closest('.part-item');
+                const partName = partItem.querySelector('h4').textContent;
+                const partPrice = partItem.querySelector('.part-price').textContent;
+                
+                // Determine category based on position in the DOM
+                const category = partItem.closest('.part-category').querySelector('h3').textContent.split(' - ')[0];
+                
+                // Update build summary
+                let found = false;
+                document.querySelectorAll('.summary-item').forEach(item => {
+                    if (item.textContent.includes(category + ':')) {
+                        item.innerHTML = `
+                            <span>${category}:</span>
+                            <span>
+                                <span class="part-name">${partName.trim()}</span>
+                                <span class="part-price">${partPrice}</span>
+                            </span>
+                        `;
+                        found = true;
+                    }
+                });
+                
+                if (!found) {
+                    // For cases where the category name doesn't exactly match
+                    if (category === 'CPU') {
+                        document.querySelector('.summary-item:nth-child(1)').innerHTML = `
+                            <span>CPU:</span>
+                            <span>
+                                <span class="part-name">${partName.trim()}</span>
+                                <span class="part-price">${partPrice}</span>
+                            </span>
+                        `;
+                    } else if (category === 'GPU') {
+                        document.querySelector('.summary-item:nth-child(2)').innerHTML = `
+                            <span>GPU:</span>
+                            <span>
+                                <span class="part-name">${partName.trim()}</span>
+                                <span class="part-price">${partPrice}</span>
+                            </span>
+                        `;
+                    }
+                }
+                
+                // Calculate total
+                let total = 0;
+                document.querySelectorAll('.part-price').forEach(priceElement => {
+                    const priceText = priceElement.textContent.match(/([\d,]+)\s*EGP/)[1];
+                    const price = parseInt(priceText.replace(/,/g, ''));
+                    if (!isNaN(price)) {
+                        total += price;
+                    }
+                });
+                
+                document.querySelector('.total-price').textContent = total.toLocaleString() + ' EGP';
+                
+                // Change button style to indicate selection
+                this.innerHTML = '<i class="fas fa-check"></i> Selected';
+                this.classList.add('selected');
+                
+                // Reset other buttons in the same category
+                const categoryItems = partItem.closest('.part-category').querySelectorAll('.part-select');
+                categoryItems.forEach(btn => {
+                    if (btn !== this) {
+                        btn.innerHTML = '<i class="fas fa-plus"></i> Add';
+                        btn.classList.remove('selected');
+                    }
+                });
+                
+                // Update compatibility notes
+                updateCompatibilityNotes();
+            });
+        });
+        
+        function updateCompatibilityNotes() {
+            const notes = document.querySelector('.compatibility-notes p');
+            // In a real app, you would check actual compatibility here
+            notes.textContent = 'All components selected are compatible with each other. The motherboard supports the chosen CPU and has enough slots for your RAM and storage devices.';
+        }
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.slide-up');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
